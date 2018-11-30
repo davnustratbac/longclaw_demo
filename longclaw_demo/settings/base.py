@@ -22,7 +22,9 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -33,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 'debug_toolbar',
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
@@ -51,7 +54,7 @@ INSTALLED_APPS = [
     'taggit',
     'rest_framework',
     'crispy_forms',
-
+    'django_countries',
     'longclaw.longclawcore',
     'longclaw.longclawsettings',
     'longclaw.longclawshipping',
@@ -70,6 +73,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -161,8 +165,11 @@ BASE_URL = 'http://example.com'
 
 # The payment gateway to use. `BasePayment` is a dummy payment gateway for testing.
 # Longclaw also offers 'BraintreePayment', 'PaypalVZeroPayment' and 'StripePayment'
-PAYMENT_GATEWAY = 'longclaw.longclawcheckout.gateways.BasePayment'
+#PAYMENT_GATEWAY = 'longclaw.longclawcheckout.gateways.BasePayment'
+PAYMENT_GATEWAY = 'longclaw.longclawcheckout.gateways.stripe.StripePayment'
 
 PRODUCT_VARIANT_MODEL = 'products.ProductVariant'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+STRIPE_PUBLISHABLE = 'pk_test_WUkQ9mzmLrTkRNKTL6DHbS2x'
+STRIPE_SECRET = 'sk_test_4QOnDpRnimsO6oMwLK4PW5Fy'
