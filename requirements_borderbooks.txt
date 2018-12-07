@@ -13,7 +13,7 @@ django-treebeard==4.3
 djangorestframework==3.6.4
 html5lib==0.999999999
 idna==2.7
--e git+https://github.com/JamesRamm/longclaw.git@e5cab48eaa78883cb997c6bb6f55a4d3468e3899#egg=longclaw
+-e git+https://github.com/davnustratbac/longclaw.git#egg=longclaw
 Pillow==5.3.0
 pytz==2018.6
 requests==2.20.0
